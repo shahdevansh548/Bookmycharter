@@ -1,0 +1,52 @@
+<?php
+use yii\helpers\Html;
+?>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px;">
+    <tr>
+        <td align="center">
+            <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <tr>
+                    <td style="padding: 20px 30px; text-align: center; background-color: #007bff; color: #ffffff; border-top-left-radius: 6px; border-top-right-radius: 6px;">
+                        <h2 style="margin: 0;">Appointment Confirmation</h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="padding: 30px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tr>
+                                <td style="padding: 8px 0;"><strong>Patient:</strong></td>
+                                <td style="padding: 8px 0;"><?= Html::encode($Data['name'] ?? 'N/A') ?></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;"><strong>Doctor:</strong></td>
+                                <td style="padding: 8px 0;"><?= Html::encode($data['doc_name']) ?></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;"><strong>Date:</strong></td>
+                                <td style="padding: 8px 0;"><?= date('d M Y', strtotime($data['start'])) ?></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;"><strong>Time:</strong></td>
+                                <td style="padding: 8px 0;">
+                                    <?= date('H:i', strtotime($data['start'])) ?> – <?= date('H:i', strtotime($data['end'])) ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;"><strong>Amount:</strong></td>
+                                <td style="padding: 8px 0;">₹<?= $data['amount'] ?></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="background-color: #f1f1f1; padding: 20px; text-align: center; font-size: 12px; color: #555;">
+                        This is an automated confirmation email. Please do not reply.
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
